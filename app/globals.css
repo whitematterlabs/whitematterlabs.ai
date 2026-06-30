@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   White Matter Labs — brand tokens
+   Spectrum sampled from the WML mark + PAI wordmark assets.
+---------------------------------------------------------------------------- */
+@theme {
+  --color-ink: #0a0910;
+  --color-ink-soft: #2a2733;
+  --color-mist: #6b6878;
+  --color-paper: #ffffff;
+  --color-paper-2: #f6f5f9;
+  --color-line: #ececf1;
+
+  /* brand spectrum, warm -> cool */
+  --color-flare: #e0531b;   /* orange */
+  --color-amber: #f4a93c;   /* gold */
+  --color-rose: #e11d74;    /* hot pink */
+  --color-magenta: #c01fae; /* magenta */
+  --color-violet: #8730ce;  /* violet */
+  --color-purple: #6600c6;  /* deep purple */
+  --color-indigo: #2f39a9;  /* indigo */
+  --color-azure: #0f5bcd;   /* blue */
+  --color-lilac: #c77dd6;   /* lilac */
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+:root {
+  --spectrum: linear-gradient(
+    100deg,
+    #e0531b 0%,
+    #f4a93c 14%,
+    #e11d74 34%,
+    #c01fae 50%,
+    #8730ce 64%,
+    #6600c6 76%,
+    #2f39a9 88%,
+    #0f5bcd 100%
+  );
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #6600c6;
+  color: #fff;
+}
+
+/* gradient text helper */
+.spectrum-text {
+  background: var(--spectrum);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.spectrum-bg {
+  background: var(--spectrum);
+}
+
+/* tight, optical display tracking */
+.display {
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  font-weight: 600;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* subtle grain so flat white never feels dead */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none !important; }
+}
