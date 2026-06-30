@@ -229,27 +229,20 @@ export default function Home() {
             Your AI should be yours.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg text-white/80">
-            Be among the first to live with PAI. We&rsquo;re onboarding early
-            users now.
+            PAI is in alpha and ready to install today. Bring your own API
+            key and you&rsquo;re running in a couple minutes.
           </p>
-          <form
-            className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row"
-            action="#"
-          >
-            <input
-              type="email"
-              required
-              placeholder="you@domain.com"
-              aria-label="Email address"
-              className="flex-1 rounded-full border border-white/25 bg-white/10 px-5 py-3.5 text-white placeholder:text-white/50 backdrop-blur-md outline-none transition focus:border-white/60"
-            />
-            <button
-              type="submit"
+          <div className="mx-auto mt-10 flex max-w-xl flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <code className="rounded-full border border-white/25 bg-white/10 px-6 py-3.5 font-mono text-sm text-white backdrop-blur-md">
+              curl -fsSL https://raw.githubusercontent.com/whitematterlabs/pai/main/install.sh | sh
+            </code>
+            <a
+              href="https://github.com/whitematterlabs/pai"
               className="rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03]"
             >
-              Request access
-            </button>
-          </form>
+              View on GitHub
+            </a>
+          </div>
         </div>
       </section>
 
