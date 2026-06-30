@@ -4,12 +4,12 @@ import { GradientFlow } from "./components/GradientFlow";
 import { Mark } from "./components/Mark";
 
 const ethos = [
-  "Private by design",
-  "On-device first",
+  "Runs on your machine",
+  "Plain text, not a database",
+  "Open source",
+  "Built for macOS",
   "Yours, not rented",
-  "Instant by default",
-  "No surveillance",
-  "Built to remember",
+  "Hackable by design",
 ];
 
 const principles = [
@@ -65,36 +65,32 @@ export default function Home() {
             className="display rise mt-6 max-w-4xl text-[clamp(2.6rem,7vw,5.6rem)] text-white"
             style={{ animationDelay: "0.08s" }}
           >
-            Personal AI that thinks
+            An AI that actually
             <br />
-            alongside you.
+            lives with you.
           </h1>
           <p
             className="rise mt-8 max-w-xl text-lg leading-relaxed text-white/80"
             style={{ animationDelay: "0.16s" }}
           >
-            We&rsquo;re building <strong className="font-semibold text-white">PAI</strong> — an
-            intelligence that&rsquo;s private by design, instant by default, and
-            shaped entirely around how you think and work.
+            <strong className="font-semibold text-white">PAI</strong> is a
+            local-first AI that runs on your own Mac, keeps its memory as
+            plain files you control, and connects to the tools you already
+            use. It&rsquo;s in alpha today, built for people comfortable with
+            a terminal.
           </p>
           <div
             className="rise mt-10 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "0.24s" }}
           >
+            <code className="rounded-full border border-white/30 bg-white/10 px-6 py-3.5 font-mono text-sm text-white backdrop-blur-sm">
+              curl -fsSL https://raw.githubusercontent.com/whitematterlabs/pai/main/install.sh | sh
+            </code>
             <a
-              href="#pai"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03]"
-            >
-              Request early access
-              <span className="transition-transform group-hover:translate-x-0.5">
-                →
-              </span>
-            </a>
-            <a
-              href="#approach"
+              href="https://github.com/whitematterlabs/pai"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/10"
             >
-              Read the approach
+              View on GitHub
             </a>
           </div>
         </div>
