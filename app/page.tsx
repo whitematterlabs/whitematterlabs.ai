@@ -15,23 +15,23 @@ const ethos = [
 const principles = [
   {
     k: "Memory",
-    title: "It remembers what matters",
-    body: "PAI builds a private model of your context — your projects, people, and preferences — so every answer starts where you left off, never from zero.",
+    title: "It actually remembers",
+    body: "State lives as plain files on disk, not in a chat window that resets when you close it. Read it with cat, grep through it. No database required.",
   },
   {
     k: "Privacy",
-    title: "Your data never leaves your control",
-    body: "On-device first, encrypted always. PAI is an intelligence you own, not an account you rent. Nothing is mined, nothing is sold.",
+    title: "It runs on your machine",
+    body: "PAI lives at ~/.pai on your own Mac. Your data isn't shipped off to train someone else's model.",
   },
   {
-    k: "Speed",
-    title: "Answers at the speed of thought",
-    body: "A model architecture tuned for latency, not benchmarks. PAI responds before you finish forming the next question.",
+    k: "Open",
+    title: "You can read all of it",
+    body: "Apache 2.0, source code you can read end to end. Edit a prompt, write your own driver, see exactly what it's doing.",
   },
   {
     k: "Agency",
     title: "It acts, not just answers",
-    body: "Connect your tools and PAI moves through them on your behalf — drafting, scheduling, researching — with your judgment in the loop.",
+    body: "Connect drivers and PAI handles email, calendar, and messages on your behalf, with you in the loop the whole time.",
   },
 ];
 
@@ -154,9 +154,9 @@ export default function Home() {
       <section id="approach" className="relative bg-paper-2 py-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-2xl">
-            <p className="eyebrow text-violet">The approach</p>
+            <p className="eyebrow text-violet">How it&rsquo;s built</p>
             <h2 className="display mt-5 text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
-              Four convictions we won&rsquo;t compromise.
+              A few things we&rsquo;re stubborn about.
             </h2>
           </div>
 
