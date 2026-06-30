@@ -69,14 +69,14 @@ export function Nav() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#pai"
+            href="#cta"
             className={`hidden rounded-full px-4 py-2 text-sm font-medium transition-all sm:inline-flex ${
               onPaper
                 ? "bg-ink text-white hover:bg-ink-soft"
                 : "bg-white text-ink hover:bg-white/90"
             }`}
           >
-            Get early access
+            Install PAI
           </a>
           <button
             onClick={() => setOpen((v) => !v)}
