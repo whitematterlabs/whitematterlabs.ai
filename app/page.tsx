@@ -85,7 +85,12 @@ export default function Home() {
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03]"
             >
               Install PAI
-              <span>→</span>
+            </a>
+            <a
+              href="https://github.com/whitematterlabs/pai"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+            >
+              View on GitHub
             </a>
           </div>
         </div>
