@@ -146,7 +146,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* visual temporarily removed — no canvas here for now */}
+          {/* visual temporarily removed, no canvas here for now */}
         </div>
       </section>
 
@@ -266,15 +266,27 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-12 sm:grid-cols-3">
               <FooterCol
                 title="Product"
-                items={["PAI", "Install", "GitHub"]}
+                items={[
+                  { label: "PAI", href: "#pai" },
+                  { label: "Install", href: "#cta" },
+                  { label: "GitHub", href: "https://github.com/whitematterlabs/pai" },
+                ]}
               />
               <FooterCol
                 title="Company"
-                items={["Approach", "Why we're building this", "Careers"]}
+                items={[
+                  { label: "Approach", href: "#approach" },
+                  { label: "Why we're building this", href: "#research" },
+                  { label: "Careers", href: "#" },
+                ]}
               />
               <FooterCol
                 title="Legal"
-                items={["Privacy", "Terms", "Security"]}
+                items={[
+                  { label: "Privacy", href: "#" },
+                  { label: "Terms", href: "#" },
+                  { label: "Security", href: "#" },
+                ]}
               />
             </div>
           </div>
@@ -294,7 +306,13 @@ export default function Home() {
   );
 }
 
-function FooterCol({ title, items }: { title: string; items: string[] }) {
+function FooterCol({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; href: string }[];
+}) {
   return (
     <div>
       <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-white/40">
@@ -302,12 +320,12 @@ function FooterCol({ title, items }: { title: string; items: string[] }) {
       </h4>
       <ul className="mt-4 space-y-2.5">
         {items.map((i) => (
-          <li key={i}>
+          <li key={i.label}>
             <a
-              href="#"
+              href={i.href}
               className="text-sm text-white/70 transition-colors hover:text-white"
             >
-              {i}
+              {i.label}
             </a>
           </li>
         ))}

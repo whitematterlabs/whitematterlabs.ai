@@ -6,7 +6,7 @@ import { Mark } from "./Mark";
 const links = [
   { label: "PAI", href: "#pai" },
   { label: "Approach", href: "#approach" },
-  { label: "Research", href: "#research" },
+  { label: "Why PAI", href: "#research" },
   { label: "Company", href: "#company" },
 ];
 
