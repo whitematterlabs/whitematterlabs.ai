@@ -118,13 +118,14 @@ export default function Home() {
             <p className="eyebrow text-magenta">The product · PAI</p>
             <h2 className="display mt-5 text-center text-[clamp(2.2rem,4.5vw,3.6rem)] text-ink">
               Your own intelligence,{" "}
-              <span className="spectrum-text">end to end.</span>
+              <span className="spectrum-text">running on your own machine.</span>
             </h2>
             <p className="mt-6 mx-auto max-w-lg text-lg leading-relaxed text-mist">
-              PAI lives with you, not in someone else&rsquo;s data center. It
-              learns your world, holds your context, and turns it into action —
-              the way a great chief of staff would, if one could fit in your
-              pocket.
+              PAI isn&rsquo;t an app you open and close. It&rsquo;s a
+              long-lived process that runs on your Mac, keeps its state as
+              plain files under <code className="font-mono">~/.pai</code>,
+              and routes events from the tools you already use: email,
+              calendar, iMessage, WhatsApp, through drivers you control.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
@@ -136,10 +137,10 @@ export default function Home() {
                 className="h-14 w-auto"
               />
               <a
-                href="#cta"
+                href="https://github.com/whitematterlabs/pai"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:gap-3 transition-all"
               >
-                Join the early access list
+                See it on GitHub
                 <span className="spectrum-text font-bold">→</span>
               </a>
             </div>
