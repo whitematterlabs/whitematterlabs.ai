@@ -36,10 +36,10 @@ const principles = [
 ];
 
 const stats = [
-  { v: "<120ms", l: "median first-token latency" },
-  { v: "100%", l: "on-device by default" },
-  { v: "0", l: "data sold, ever" },
-  { v: "∞", l: "context that stays yours" },
+  { v: "10", l: "drivers shipped: email, calendar, iMessage, WhatsApp, and more" },
+  { v: "3", l: "ways in: TUI, web, headless" },
+  { v: "Apache 2.0", l: "open source license" },
+  { v: "macOS", l: "supported today" },
 ];
 
 export default function Home() {
@@ -187,18 +187,18 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:items-end">
             <div>
-              <p className="eyebrow text-azure">Research</p>
+              <p className="eyebrow text-azure">Why we&rsquo;re building this</p>
               <h2 className="display mt-5 text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
-                Intelligence is moving to the edge.
+                Personal AI shouldn&rsquo;t live in
                 <br />
-                <span className="text-mist">We&rsquo;re building it there.</span>
+                <span className="text-mist">someone else&rsquo;s data center.</span>
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
-                The next decade of AI won&rsquo;t be defined by the largest
-                model in the largest cloud. It&rsquo;ll be defined by the most
-                personal one — the model that knows you, runs for you, and
-                answers to you alone. White Matter Labs exists to build that
-                model and put it in your hands.
+                Most AI today runs as a hosted service you rent by the month.
+                We think the more useful version runs on your own machine,
+                knows your context because it&rsquo;s been there the whole
+                time, and answers to you instead of a quarterly earnings
+                call.
               </p>
             </div>
 
