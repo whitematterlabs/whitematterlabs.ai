@@ -2,15 +2,12 @@ import Image from "next/image";
 import { Nav } from "./components/Nav";
 import { GradientFlow } from "./components/GradientFlow";
 import { Mark } from "./components/Mark";
+import { InstallCommand } from "./components/InstallCommand";
 
-const ethos = [
-  "Runs on your machine",
-  "Plain text, not a database",
-  "Open source",
-  "Built for macOS",
-  "Yours, not rented",
-  "Hackable by design",
-];
+const INSTALL_COMMAND =
+  "curl -fsSL https://raw.githubusercontent.com/whitematterlabs/pai/main/install.sh | sh";
+
+const ethos = ["Free and open source", "Private", "Always local"];
 
 const principles = [
   {
@@ -83,14 +80,12 @@ export default function Home() {
             className="rise mt-10 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "0.24s" }}
           >
-            <code className="rounded-full border border-white/30 bg-white/10 px-6 py-3.5 font-mono text-sm text-white backdrop-blur-sm">
-              curl -fsSL https://raw.githubusercontent.com/whitematterlabs/pai/main/install.sh | sh
-            </code>
             <a
-              href="https://github.com/whitematterlabs/pai"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+              href="#install"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03]"
             >
-              View on GitHub
+              Install PAI
+              <span>→</span>
             </a>
           </div>
         </div>
@@ -111,6 +106,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ------------------------------------------------------------- INSTALL */}
+      <section id="install" className="relative bg-paper-2 py-28">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="eyebrow text-flare">Get started</p>
+          <h2 className="display mt-5 text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
+            One command. You&rsquo;re running.
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-mist">
+            Paste this into a terminal on your Mac. Bring your own API key.
+          </p>
+          <div className="mt-10">
+            <InstallCommand command={INSTALL_COMMAND} />
+          </div>
+          <a
+            href="https://github.com/whitematterlabs/pai"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink hover:gap-3 transition-all"
+          >
+            View source on GitHub
+            <span className="spectrum-text font-bold">→</span>
+          </a>
+        </div>
+      </section>
+
       {/* -------------------------------------------------------------- PAI */}
       <section id="pai" className="relative bg-paper py-28">
         <div className="mx-auto max-w-3xl px-6 text-center">
@@ -122,10 +140,9 @@ export default function Home() {
             </h2>
             <p className="mt-6 mx-auto max-w-lg text-lg leading-relaxed text-mist">
               PAI isn&rsquo;t an app you open and close. It&rsquo;s a
-              long-lived process that runs on your Mac, keeps its state as
-              plain files under <code className="font-mono">~/.pai</code>,
-              and routes events from the tools you already use: email,
-              calendar, iMessage, WhatsApp, through drivers you control.
+              long-lived process that runs on your Mac and keeps its state as
+              plain files you can inspect, edit, and version like any other
+              part of your filesystem.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
@@ -146,7 +163,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* visual temporarily removed, no canvas here for now */}
+          {/* placeholder for a filesystem/Finder-style diagram visualizing ~/.pai */}
+          <div className="mx-auto mt-16 flex h-64 w-full max-w-md items-center justify-center rounded-2xl border border-dashed border-line">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-mist/60">
+              Filesystem diagram coming soon
+            </span>
+          </div>
         </div>
       </section>
 
@@ -232,17 +254,15 @@ export default function Home() {
             PAI is in alpha and ready to install today. Bring your own API
             key and you&rsquo;re running in a couple minutes.
           </p>
-          <div className="mx-auto mt-10 flex max-w-xl flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <code className="rounded-full border border-white/25 bg-white/10 px-6 py-3.5 font-mono text-sm text-white backdrop-blur-md">
-              curl -fsSL https://raw.githubusercontent.com/whitematterlabs/pai/main/install.sh | sh
-            </code>
-            <a
-              href="https://github.com/whitematterlabs/pai"
-              className="rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03]"
-            >
-              View on GitHub
-            </a>
+          <div className="mt-10">
+            <InstallCommand command={INSTALL_COMMAND} />
           </div>
+          <a
+            href="https://github.com/whitematterlabs/pai"
+            className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
+          >
+            View on GitHub
+          </a>
         </div>
       </section>
 
@@ -268,7 +288,7 @@ export default function Home() {
                 title="Product"
                 items={[
                   { label: "PAI", href: "#pai" },
-                  { label: "Install", href: "#cta" },
+                  { label: "Install", href: "#install" },
                   { label: "GitHub", href: "https://github.com/whitematterlabs/pai" },
                 ]}
               />
