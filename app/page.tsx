@@ -258,19 +258,19 @@ export default function Home() {
                 </span>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-white/55">
-                Building PAI — a Personal AI that&rsquo;s private by design and
-                entirely yours.
+                Building PAI, a local-first Personal AI you run on your own
+                machine.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-12 sm:grid-cols-3">
               <FooterCol
                 title="Product"
-                items={["PAI", "Early access", "Changelog"]}
+                items={["PAI", "Install", "GitHub"]}
               />
               <FooterCol
                 title="Company"
-                items={["Approach", "Research", "Careers"]}
+                items={["Approach", "Why we're building this", "Careers"]}
               />
               <FooterCol
                 title="Legal"
