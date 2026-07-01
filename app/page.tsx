@@ -1,42 +1,48 @@
-import Image from "next/image";
 import { Nav } from "./components/Nav";
 import { GradientFlow } from "./components/GradientFlow";
 import { Mark } from "./components/Mark";
 import { InstallCommand } from "./components/InstallCommand";
+import { UseCases } from "./components/UseCases";
 
 const INSTALL_COMMAND =
   "curl -fsSL https://raw.githubusercontent.com/whitematterlabs/pai/main/install.sh | sh";
 
 const ethos = ["Free and open source", "Private", "Always local"];
 
+// One marquee half, repeated wide enough to exceed any viewport so the
+// translateX(-50%) loop (see .marquee-track in globals.css) never runs dry.
+// The track renders this half twice; the two identical halves are what make
+// the loop seamless.
+const marqueeHalf = Array.from({ length: 5 }).flatMap(() => ethos);
+
 const principles = [
   {
     k: "Memory",
     title: "It actually remembers",
-    body: "State lives as plain files on disk, not in a chat window that resets when you close it. Read it with cat, grep through it. No database required.",
+    body: "Most assistants forget you the moment you close the tab. PAI keeps its memory as plain files on your own disk, so it picks up where you left off — and you can open it up and see exactly what it knows.",
   },
   {
     k: "Privacy",
     title: "It runs on your machine",
-    body: "PAI lives at ~/.pai on your own Mac. Your data isn't shipped off to train someone else's model.",
+    body: "Everything PAI knows stays on your Mac. Nothing is shipped off to a cloud you don't control, and nothing is used to train someone else's model.",
   },
   {
     k: "Open",
     title: "You can read all of it",
-    body: "Apache 2.0, source code you can read end to end. Edit a prompt, write your own driver, see exactly what it's doing.",
+    body: "There's no black box. PAI is open source, so you can read every line, tweak how it thinks, or build your own integration when it doesn't do quite what you need.",
   },
   {
     k: "Agency",
     title: "It acts, not just answers",
-    body: "Connect drivers and PAI handles email, calendar, and messages on your behalf, with you in the loop the whole time.",
+    body: "PAI plugs straight into the Mail and iMessage apps you already use, and drives your browser and computer the same way you would — drafting, scheduling, replying, clicking through — always with you in the loop.",
   },
 ];
 
 const stats = [
-  { v: "10", l: "drivers shipped: email, calendar, iMessage, WhatsApp, and more" },
-  { v: "3", l: "ways in: TUI, web, headless" },
-  { v: "Apache 2.0", l: "open source license" },
-  { v: "macOS", l: "supported today" },
+  { v: "10+", l: "things it plugs into — email, calendar, iMessage, WhatsApp, and growing" },
+  { v: "100%", l: "local — runs on your machine, your data never leaves" },
+  { v: "Apache 2.0", l: "open source, every line of it" },
+  { v: "macOS", l: "running today, more to come" },
 ];
 
 export default function Home() {
@@ -57,9 +63,8 @@ export default function Home() {
         />
 
         <div className="relative mx-auto w-full max-w-7xl px-6 pt-28">
-          <p className="eyebrow rise text-white/75">White Matter Labs</p>
           <h1
-            className="display rise mt-6 max-w-4xl text-[clamp(2.6rem,7vw,5.6rem)] text-white"
+            className="display rise max-w-4xl text-[clamp(2.6rem,7vw,5.6rem)] text-white"
             style={{ animationDelay: "0.08s" }}
           >
             An AI that actually
@@ -71,17 +76,17 @@ export default function Home() {
             style={{ animationDelay: "0.16s" }}
           >
             <strong className="font-semibold text-white">PAI</strong> is a
-            local-first AI that runs on your own Mac, keeps its memory as
-            plain files you control, and connects to the tools you already
-            use. It&rsquo;s in alpha today, built for people comfortable with
-            a terminal.
+            personal AI that lives on your own Mac. It remembers what matters,
+            works with the tools you already live in, and answers to you
+            &mdash; not to a server farm. In alpha now, for people who live in
+            the terminal.
           </p>
           <div
             className="rise mt-10 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "0.24s" }}
           >
             <a
-              href="#install"
+              href="#cta"
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03]"
             >
               Install PAI
@@ -98,7 +103,7 @@ export default function Home() {
         {/* ethos marquee riding the bottom of the hero */}
         <div className="relative mt-20 overflow-hidden border-y border-white/15 py-4">
           <div className="marquee-track flex w-max gap-12 whitespace-nowrap">
-            {[...ethos, ...ethos].map((e, i) => (
+            {[...marqueeHalf, ...marqueeHalf].map((e, i) => (
               <span
                 key={i}
                 className="flex items-center gap-12 font-mono text-xs uppercase tracking-[0.22em] text-white/55"
@@ -111,78 +116,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ------------------------------------------------------------- INSTALL */}
-      <section id="install" className="relative bg-paper-2 py-28">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="eyebrow text-flare">Get started</p>
-          <h2 className="display mt-5 text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
-            One command. You&rsquo;re running.
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-mist">
-            Paste this into a terminal on your Mac. Bring your own API key.
-          </p>
-          <div className="mt-10">
-            <InstallCommand command={INSTALL_COMMAND} />
-          </div>
-          <a
-            href="https://github.com/whitematterlabs/pai"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink hover:gap-3 transition-all"
-          >
-            View source on GitHub
-            <span className="spectrum-text font-bold">→</span>
-          </a>
-        </div>
-      </section>
-
       {/* -------------------------------------------------------------- PAI */}
       <section id="pai" className="relative bg-paper py-28">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div>
-            <p className="eyebrow text-magenta">The product · PAI</p>
-            <h2 className="display mt-5 text-center text-[clamp(2.2rem,4.5vw,3.6rem)] text-ink">
+            <h2 className="display text-center text-[clamp(2.2rem,4.5vw,3.6rem)] text-ink">
               Your own intelligence,{" "}
               <span className="spectrum-text">running on your own machine.</span>
             </h2>
             <p className="mt-6 mx-auto max-w-lg text-lg leading-relaxed text-mist">
-              PAI isn&rsquo;t an app you open and close. It&rsquo;s a
-              long-lived process that runs on your Mac and keeps its state as
-              plain files you can inspect, edit, and version like any other
-              part of your filesystem.
+              PAI works the Mail and Messages apps you already have and drives
+              your browser and computer just like you do &mdash; quietly in the
+              background when you&rsquo;re there, acting in your stead when you
+              aren&rsquo;t.
             </p>
-
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-              <Image
-                src="/brand/pai-logo.png"
-                alt="PAI by White Matter Labs"
-                width={150}
-                height={150}
-                className="h-14 w-auto"
-              />
-              <a
-                href="https://github.com/whitematterlabs/pai"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:gap-3 transition-all"
-              >
-                See it on GitHub
-                <span className="spectrum-text font-bold">→</span>
-              </a>
-            </div>
           </div>
+        </div>
 
-          {/* placeholder for a filesystem/Finder-style diagram visualizing ~/.pai */}
-          <div className="mx-auto mt-16 flex h-64 w-full max-w-md items-center justify-center rounded-2xl border border-dashed border-line">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-mist/60">
-              Filesystem diagram coming soon
-            </span>
-          </div>
+        {/* what PAI actually does, day to day */}
+        <div className="relative mx-auto mt-16 w-full max-w-5xl px-6">
+          <UseCases />
         </div>
       </section>
 
       {/* ----------------------------------------------------------- APPROACH */}
       <section id="approach" className="relative bg-paper-2 py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-2xl">
-            <p className="eyebrow text-violet">How it&rsquo;s built</p>
-            <h2 className="display mt-5 text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="display text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
               A few things we&rsquo;re stubborn about.
             </h2>
           </div>
@@ -214,11 +175,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:items-end">
             <div>
-              <p className="eyebrow text-azure">Why we&rsquo;re building this</p>
-              <h2 className="display mt-5 text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
-                Personal AI shouldn&rsquo;t live in
+              <h2 className="display text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
+                <span className="whitespace-nowrap">Everyone&rsquo;s getting hacked.</span>
                 <br />
-                <span className="text-mist">someone else&rsquo;s data center.</span>
+                <span className="text-mist">Keep your data close.</span>
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
                 Most AI today runs as a hosted service you rent by the month.
@@ -293,7 +253,7 @@ export default function Home() {
                 title="Product"
                 items={[
                   { label: "PAI", href: "#pai" },
-                  { label: "Install", href: "#install" },
+                  { label: "Install", href: "#cta" },
                   { label: "GitHub", href: "https://github.com/whitematterlabs/pai" },
                 ]}
               />
