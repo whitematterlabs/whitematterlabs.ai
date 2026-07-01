@@ -176,7 +176,7 @@ export default function Home() {
           <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:items-end">
             <div>
               <h2 className="display text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
-                <span className="whitespace-nowrap">Everyone&rsquo;s getting hacked.</span>
+                <span className="sm:whitespace-nowrap">Everyone&rsquo;s getting hacked.</span>
                 <br />
                 <span className="text-mist">Keep your data close.</span>
               </h2>
@@ -192,7 +192,7 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-line bg-line">
               {stats.map((s) => (
                 <div key={s.l} className="bg-paper p-8">
-                  <div className="spectrum-text text-4xl font-semibold tracking-tight">
+                  <div className="spectrum-text text-3xl font-semibold tracking-tight sm:text-4xl">
                     {s.v}
                   </div>
                   <div className="mt-2 text-sm leading-snug text-mist">
