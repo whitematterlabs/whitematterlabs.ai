@@ -4,14 +4,14 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "White Matter Labs — Personal AI",
+  title: "White Matter Labs",
   description:
-    "White Matter Labs builds PAI, a Personal AI that thinks alongside you. Private, fast, and entirely yours.",
+    "Building the future of personal computing.",
   metadataBase: new URL("https://whitematterlabs.ai"),
   openGraph: {
-    title: "White Matter Labs — Personal AI",
+    title: "White Matter Labs",
     description:
-      "PAI is a Personal AI that thinks alongside you. Private, fast, and entirely yours.",
+      "Building the future of personal computing.",
     type: "website",
   },
   icons: { icon: "/brand/wml-mark.svg" },
