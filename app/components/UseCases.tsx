@@ -14,6 +14,25 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// PAI's chat avatar — a simple friendly smiley, drawn on currentColor.
+function Smiley({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <circle cx="8.75" cy="9.75" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="15.25" cy="9.75" r="1.1" fill="currentColor" stroke="none" />
+      <path d="M8 14.25 Q12 18.5 16 14.25" />
+    </svg>
+  );
+}
+
 type Message = { from: "you" | "pai"; text: string };
 type Workflow = { k: string; messages: Message[] };
 
@@ -164,9 +183,11 @@ export function UseCases() {
               <div key={i} className="chat-in flex items-end gap-2.5">
                 {avatar ? (
                   <span
-                    className="spectrum-bg h-7 w-7 shrink-0 rounded-full"
+                    className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-line bg-paper"
                     aria-hidden="true"
-                  />
+                  >
+                    <Smiley className="h-[22px] w-[22px] text-ink" />
+                  </span>
                 ) : (
                   <span className="w-7 shrink-0" aria-hidden="true" />
                 )}
@@ -181,9 +202,11 @@ export function UseCases() {
             <div className="chat-in flex items-end gap-2.5">
               {typingHasAvatar ? (
                 <span
-                  className="spectrum-bg h-7 w-7 shrink-0 rounded-full"
+                  className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-line bg-paper"
                   aria-hidden="true"
-                />
+                >
+                  <Smiley className="h-[22px] w-[22px] text-ink" />
+                </span>
               ) : (
                 <span className="w-7 shrink-0" aria-hidden="true" />
               )}
@@ -213,7 +236,7 @@ export function UseCases() {
               aria-current={selected}
               className={`rounded-full transition-all ${
                 selected
-                  ? "spectrum-bg h-2.5 w-2.5"
+                  ? "h-2.5 w-2.5 bg-ink-soft"
                   : "h-2 w-2 bg-line hover:bg-mist"
               }`}
             />

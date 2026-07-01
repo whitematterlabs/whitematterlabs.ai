@@ -17,32 +17,25 @@ const marqueeHalf = Array.from({ length: 5 }).flatMap(() => ethos);
 
 const principles = [
   {
-    k: "Memory",
-    title: "It actually remembers",
-    body: "Most assistants forget you the moment you close the tab. PAI keeps its memory as plain files on your own disk, so it picks up where you left off — and you can open it up and see exactly what it knows.",
+    k: "Local-first",
+    title: "Local-first",
+    body: "Your context lives on your disk, not in someone's datacenter. PAI writes what it learns to plain files you own — readable, portable, yours to back up or delete. Close it, reopen it next week, switch machines: it still knows you, because the memory never left home.",
   },
   {
-    k: "Privacy",
-    title: "It runs on your machine",
-    body: "Everything PAI knows stays on your Mac. Nothing is shipped off to a cloud you don't control, and nothing is used to train someone else's model.",
+    k: "Free",
+    title: "Free and open",
+    body: "No price tag, no login wall, no upsell to a pro tier. PAI is free because software this personal shouldn't be rented. You're not the product either — there's nothing to monetize when the whole thing runs on your hardware and answers to you.",
   },
   {
     k: "Open",
     title: "You can read all of it",
-    body: "There's no black box. PAI is open source, so you can read every line, tweak how it thinks, or build your own integration when it doesn't do quite what you need.",
+    body: "Nothing about PAI is hidden from you. The source is fully open, so you can audit every decision it makes, rewire the parts you disagree with, or teach it a new trick the maintainers never imagined. Trust it because you checked, not because we asked.",
   },
   {
     k: "Agency",
-    title: "It acts, not just answers",
-    body: "PAI plugs straight into the Mail and iMessage apps you already use, and drives your browser and computer the same way you would — drafting, scheduling, replying, clicking through — always with you in the loop.",
+    title: "Uses your computer just like you can",
+    body: "PAI doesn't just describe what to do — it does it. It works your Mail, iMessage, browser and files with the same clicks and keystrokes you'd use, handling the busywork end to end while you stay in the loop and keep the final say.",
   },
-];
-
-const stats = [
-  { v: "10+", l: "things it plugs into — email, calendar, iMessage, WhatsApp, and growing" },
-  { v: "100%", l: "local — runs on your machine, your data never leaves" },
-  { v: "Apache 2.0", l: "open source, every line of it" },
-  { v: "macOS", l: "running today, more to come" },
 ];
 
 export default function Home() {
@@ -67,19 +60,19 @@ export default function Home() {
             className="display rise max-w-4xl text-[clamp(2.6rem,7vw,5.6rem)] text-white"
             style={{ animationDelay: "0.08s" }}
           >
-            An AI that actually
+            Someone in your corner.
             <br />
-            lives with you.
+            Always.
           </h1>
           <p
             className="rise mt-8 max-w-xl text-lg leading-relaxed text-white/80"
             style={{ animationDelay: "0.16s" }}
           >
-            <strong className="font-semibold text-white">PAI</strong> is a
-            personal AI that lives on your own Mac. It remembers what matters,
-            works with the tools you already live in, and answers to you
-            &mdash; not to a server farm. In alpha now, for people who live in
-            the terminal.
+            Meet <strong className="font-semibold text-white">PAI</strong>, your
+            personal AI assistant. It works the way you do, remembers what
+            matters, and keeps your information close &mdash; so your assistant
+            stays truly personal. Always one step ahead, PAI brings you the right
+            information when you need it.
           </p>
           <div
             className="rise mt-10 flex flex-wrap items-center gap-4"
@@ -121,14 +114,14 @@ export default function Home() {
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div>
             <h2 className="display text-center text-[clamp(2.2rem,4.5vw,3.6rem)] text-ink">
-              Your own intelligence,{" "}
+              Your personal assistant,{" "}
               <span className="spectrum-text">running on your own machine.</span>
             </h2>
             <p className="mt-6 mx-auto max-w-lg text-lg leading-relaxed text-mist">
-              PAI works the Mail and Messages apps you already have and drives
-              your browser and computer just like you do &mdash; quietly in the
-              background when you&rsquo;re there, acting in your stead when you
-              aren&rsquo;t.
+              Because PAI remembers your context and lives in the apps you
+              already use, it helps without being told everything twice. Less
+              explaining, more doing &mdash; it handles the small things before
+              they pile up, so you&rsquo;re free for what actually matters.
             </p>
           </div>
         </div>
@@ -154,53 +147,12 @@ export default function Home() {
                 key={p.k}
                 className="group relative bg-paper p-9 transition-colors hover:bg-white"
               >
-                <div className="flex items-center gap-3">
-                  <span className="h-2.5 w-2.5 rounded-full spectrum-bg" />
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-mist">
-                    {p.k}
-                  </span>
-                </div>
-                <h3 className="mt-5 text-xl font-semibold tracking-tight text-ink">
+                <h3 className="text-xl font-semibold tracking-tight text-ink">
                   {p.title}
                 </h3>
                 <p className="mt-3 leading-relaxed text-mist">{p.body}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------------- RESEARCH */}
-      <section id="research" className="relative bg-paper py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:items-end">
-            <div>
-              <h2 className="display text-[clamp(2.2rem,4.5vw,3.4rem)] text-ink">
-                <span className="sm:whitespace-nowrap">Everyone&rsquo;s getting hacked.</span>
-                <br />
-                <span className="text-mist">Keep your data close.</span>
-              </h2>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
-                Most AI today runs as a hosted service you rent by the month.
-                We think the more useful version runs on your own machine,
-                knows your context because it&rsquo;s been there the whole
-                time, and answers to you instead of a quarterly earnings
-                call.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-line bg-line">
-              {stats.map((s) => (
-                <div key={s.l} className="bg-paper p-8">
-                  <div className="spectrum-text text-3xl font-semibold tracking-tight sm:text-4xl">
-                    {s.v}
-                  </div>
-                  <div className="mt-2 text-sm leading-snug text-mist">
-                    {s.l}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
